@@ -1,23 +1,17 @@
-<?php get_header();
-
-get_template_part( 'content/archive-header' );
-
-?>
-	<div id="loop-container" class="loop-container">
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) :
-				the_post();
-				ct_author_get_content_template();
-			endwhile;
-		endif;
-		?>
-	</div>
 <?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-the_posts_pagination( array(
-		'prev_text' => esc_html__( 'Previous', 'author' ),
-    'next_text' => esc_html__( 'Next', 'author' )
-) );
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-get_footer();
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );
